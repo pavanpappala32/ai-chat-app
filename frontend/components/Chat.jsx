@@ -16,7 +16,7 @@ const Chat = () => {
 
             try {
                 // Send to backend
-                const response = await axios.post('http://localhost:5000/api/chat', {
+                const response = await axios.post('https://ai-chat-backend-7p3l.onrender.com', {
                     message: input
                 });
                 

@@ -8,7 +8,20 @@ require('dotenv').config();
 
 
 const app = express();
-app.use(cors());
+
+// CORS configuration for production
+const corsOptions = {
+    origin: [
+        'http://localhost:5000', // Development
+        'http://localhost:5173', // Development frontend
+        'https://ai-chat-frontend-9doh.onrender.com' // Production frontend
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;

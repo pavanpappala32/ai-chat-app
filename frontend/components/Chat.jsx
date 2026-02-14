@@ -15,8 +15,8 @@ const Chat = () => {
             setLoading(true);
 
             try {
-                // Send to backend - use environment variable for production
-                const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+                // Send to backend - hardcoded for production deployment
+                const backendUrl = 'https://ai-chat-backend-7p3l.onrender.com';
                 
                 const response = await axios.post(`${backendUrl}/api/chat`, {
                     message: input

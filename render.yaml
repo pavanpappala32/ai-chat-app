@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: ai-chat-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: NVIDIA_API_KEY
+        sync: false
+
+  - type: web
+    name: ai-chat-frontend
+    runtime: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: true
+    envVars:
+      - key: NODE_ENV
+        value: production
